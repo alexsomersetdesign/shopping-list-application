@@ -1,0 +1,15 @@
+{
+  "name": "shopping-list",
+  "version": "1.0.0",
+  "description": "The best shopping list ever!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "styles": "sass --watch sass/app.scss:css/app.css"
+  },
+  "author": "Alex Munro",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}

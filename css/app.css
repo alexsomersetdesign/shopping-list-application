@@ -1,0 +1,139 @@
+BODY {
+  font-family: "Poppins", sans-serif;
+}
+
+HEADER {
+  background-color: #0369a1;
+}
+HEADER .header {
+  padding: 10px 0px;
+}
+HEADER .header .header__title {
+  color: white;
+}
+
+.section-margin {
+  margin: 3rem 0rem;
+}
+
+.btn--remove {
+  background-color: red;
+  border: 2px solid red;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 7px;
+  display: inline-block;
+  font-weight: 500;
+  transition: 0.5s;
+  font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
+}
+.btn--remove:hover {
+  cursor: pointer;
+  background: white;
+  border: 2px solid red;
+  color: red;
+}
+.btn--remove.hover-stroke:hover {
+  border: 2px solid red;
+}
+
+.btn--purchase {
+  background-color: #0369a1;
+  border: 2px solid #0369a1;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 7px;
+  display: inline-block;
+  font-weight: 500;
+  transition: 0.5s;
+  font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
+}
+.btn--purchase:hover {
+  cursor: pointer;
+  background: white;
+  border: 2px solid #0369a1;
+  color: #0369a1;
+}
+.btn--purchase.hover-stroke:hover {
+  border: 2px solid #0369a1;
+}
+.btn--purchase.btn--purchased {
+  background-color: green;
+  color: white;
+  border-color: green;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.panel {
+  border: 2px solid #0369a1;
+  padding: 30px;
+  border-radius: 8px;
+}
+.panel.panel--slim {
+  padding: 10px 30px;
+}
+.panel .panel__row {
+  display: flex;
+}
+.panel .panel__row .panel__column.panel__column--50 {
+  width: 50%;
+  flex: 0 0 50%;
+}
+.panel .panel__row .panel__column.panel__column--33 {
+  width: 33%;
+  flex: 0 0 33%;
+}
+.panel .panel__row .panel__column.panel__column--66 {
+  width: 66%;
+  flex: 0 0 66%;
+}
+.panel .panel__row .panel__column.panel__column--right-spacing .panel__item {
+  max-width: 75%;
+}
+.panel .panel__row .panel__column .panel__item {
+  padding-bottom: 20px;
+  position: relative;
+}
+.panel .panel__row .panel__column .panel__item .left, .panel .panel__row .panel__column .panel__item .right {
+  display: inline-block;
+}
+.panel .panel__row .panel__column .panel__item .right {
+  float: right;
+  display: flex;
+}
+.panel .panel__row .panel__column .panel__item .right .btn--purchase {
+  margin-right: 0.5rem;
+}
+.panel .panel__row .panel__column .panel__item .left SPAN {
+  position: relative;
+}
+.panel .panel__row .panel__column .panel__item .left SPAN:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: red;
+  opacity: 0;
+  top: 50%;
+}
+.panel .panel__row .panel__column .panel__item .left SPAN.purchased:before {
+  opacity: 1;
+}
+
+.spending-limit .spending-limit__message {
+  display: none;
+  color: red;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.spending-limit .spending-limit__message.display {
+  display: block;
+}
+
+/*# sourceMappingURL=app.css.map */
