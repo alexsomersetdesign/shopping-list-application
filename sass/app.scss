@@ -49,11 +49,13 @@ HEADER {
 }
 
 //Buttons
-
+.btn {
+	@include button();
+}
 .btn--remove {
 	@include button($primary_color:red);
 }
-.btn--purchase {
+.btn--purchase, .btn--add {
 	@include button;
 	&.btn--purchased {
 		background-color: green;
@@ -68,6 +70,9 @@ HEADER {
 .container {
 	max-width: 1200px;
 	margin:auto;
+	&.container--slim {
+		max-width: 750px;
+	}
 
 }
 .panel {
@@ -80,17 +85,20 @@ HEADER {
 	.panel__row {
 		display: flex;
 		.panel__column {
+			flex: 1 1 0;
+    		min-width: 0;
+    		flex-shrink: 0;
 			&.panel__column--50 {
-				width:50%;
-				flex:0 0 50%;
+				max-width:50%;
+				// flex:0 0 50%;
 			}
 			&.panel__column--33 {
-				width:33%;
-				flex:0 0 33%;
+				max-width:33%;
+				// flex:0 0 33%;
 			}
 			&.panel__column--66 {
-				width:66%;
-				flex:0 0 66%;
+				max-width:66%;
+				// flex:0 0 66%;
 			}
 			&.panel__column--left-padding {
 				
@@ -125,7 +133,11 @@ HEADER {
 							opacity: 0;
 							top: 50%;
 						}
-						&.purchased {
+					}
+				}
+				&.panel__item--purchased {
+					.left {
+						SPAN {
 							&:before {
 								opacity: 1;
 							}
@@ -147,5 +159,28 @@ HEADER {
 		&.display {
 			display: block;
 		}
+	}
+}
+
+//Form Styling -------
+
+FORM {
+	.form__input {
+		INPUT {
+			border:2px solid $blueStd;
+			border-radius: 5px;
+			padding:10px 20px;
+			margin:10px 0px;
+			font-weight: 500;
+			font-size: 1rem;
+			min-width: 250px;
+			&::placeholder {
+				color:$blueStd;
+				font-weight: 800;
+			}
+		}
+	}
+	BUTTON.btn {
+		font-size: 1rem;
 	}
 }

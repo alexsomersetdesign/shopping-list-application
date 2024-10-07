@@ -16,6 +16,28 @@ HEADER .header .header__title {
   margin: 3rem 0rem;
 }
 
+.btn {
+  background-color: #0369a1;
+  border: 2px solid #0369a1;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 7px;
+  display: inline-block;
+  font-weight: 500;
+  transition: 0.5s;
+  font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
+}
+.btn:hover {
+  cursor: pointer;
+  background: white;
+  border: 2px solid #0369a1;
+  color: #0369a1;
+}
+.btn.hover-stroke:hover {
+  border: 2px solid #0369a1;
+}
+
 .btn--remove {
   background-color: red;
   border: 2px solid red;
@@ -38,7 +60,7 @@ HEADER .header .header__title {
   border: 2px solid red;
 }
 
-.btn--purchase {
+.btn--purchase, .btn--add {
   background-color: #0369a1;
   border: 2px solid #0369a1;
   color: white;
@@ -50,16 +72,16 @@ HEADER .header .header__title {
   font-size: 0.8rem;
   font-family: "Poppins", sans-serif;
 }
-.btn--purchase:hover {
+.btn--purchase:hover, .btn--add:hover {
   cursor: pointer;
   background: white;
   border: 2px solid #0369a1;
   color: #0369a1;
 }
-.btn--purchase.hover-stroke:hover {
+.btn--purchase.hover-stroke:hover, .btn--add.hover-stroke:hover {
   border: 2px solid #0369a1;
 }
-.btn--purchase.btn--purchased {
+.btn--purchase.btn--purchased, .btn--add.btn--purchased {
   background-color: green;
   color: white;
   border-color: green;
@@ -68,6 +90,9 @@ HEADER .header .header__title {
 .container {
   max-width: 1200px;
   margin: auto;
+}
+.container.container--slim {
+  max-width: 750px;
 }
 
 .panel {
@@ -81,17 +106,19 @@ HEADER .header .header__title {
 .panel .panel__row {
   display: flex;
 }
+.panel .panel__row .panel__column {
+  flex: 1 1 0;
+  min-width: 0;
+  flex-shrink: 0;
+}
 .panel .panel__row .panel__column.panel__column--50 {
-  width: 50%;
-  flex: 0 0 50%;
+  max-width: 50%;
 }
 .panel .panel__row .panel__column.panel__column--33 {
-  width: 33%;
-  flex: 0 0 33%;
+  max-width: 33%;
 }
 .panel .panel__row .panel__column.panel__column--66 {
-  width: 66%;
-  flex: 0 0 66%;
+  max-width: 66%;
 }
 .panel .panel__row .panel__column.panel__column--right-spacing .panel__item {
   max-width: 75%;
@@ -122,7 +149,7 @@ HEADER .header .header__title {
   opacity: 0;
   top: 50%;
 }
-.panel .panel__row .panel__column .panel__item .left SPAN.purchased:before {
+.panel .panel__row .panel__column .panel__item.panel__item--purchased .left SPAN:before {
   opacity: 1;
 }
 
@@ -134,6 +161,23 @@ HEADER .header .header__title {
 }
 .spending-limit .spending-limit__message.display {
   display: block;
+}
+
+FORM .form__input INPUT {
+  border: 2px solid #0369a1;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  font-weight: 500;
+  font-size: 1rem;
+  min-width: 250px;
+}
+FORM .form__input INPUT::placeholder {
+  color: #0369a1;
+  font-weight: 800;
+}
+FORM BUTTON.btn {
+  font-size: 1rem;
 }
 
 /*# sourceMappingURL=app.css.map */

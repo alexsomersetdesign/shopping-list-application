@@ -1,15 +1,12 @@
 <?php include ('./view/components/header.php') ?>
 <section class="section-margin">
-	<div class="container container--slim">
+	<div class="container">
 		<div class="panel">
 			<div class="panel__row">
 				<div class="panel__column panel__column--50 panel__column--right-spacing">
-
 					<div class="spending-limit">
 						<h2>Spending Limit = £<span id="spendingLimit">50</span><span class="spending-limit__message">You have reached your spending limit</span></h2>
-						
 					</div>
-
 					<h2>List Items</h2>
 					<?php $price_array = array(); ?>
 					<?php if(isset($user_products) && count($user_products) > 0) { ?>
@@ -18,15 +15,31 @@
 							<div class="panel__item">
 								<div class="left">
 									<span><?= $product['name']; ?></span>
-								</div>
-								<div class="right">
+
 									<form method="post">
-										<input type="hidden" name="action" value="purchase_product" />
-										<input type="hidden" name="product_id" value='<?= $product['id'] ?>' />
+										<input type="hidden" name="action" value="order_products" />
 										<input type="hidden" name="user_id" value='<?= $product['user_id'] ?>' />
-										<button class="btn--purchase" type="submit">Purchase</button>
+										<input type="hidden" name="product_id" value='<?= $product['id'] ?>' />
+
+
+										<!-- <select name="order">
+											 set a counter which increments each time a product is looped over so number of options will match that of products, increment the counter and allow user to set an ordinal for each product 
+											<?php /* $counter = 1; ?>
+											<?php foreach($user_products as $product) { ?>
+												<option value='<?= $counter; ?>'><?= $counter; ?></option>
+												<?php $counter++; ?>
+											<? } */ ?>
+										</select> -->
+
+
+										<!-- <button class="btn--add" type="submit">Order</button> -->
 									</form>
 
+
+
+								</div>
+								<div class="right">
+									<span class="btn--purchase">Purchase</span>
 									<form method="post">
 										<input type="hidden" name="action" value="remove_product" />
 										<input type="hidden" name="user_id" value='<?= $product['user_id'] ?>' />
@@ -46,18 +59,17 @@
 				<div class="panel__column panel__column--50 panel__column--left-padding">
 					<h2>Products for Sale</h2>
 					<?php if(isset($all_products)) { ?>
-
 						<?php foreach($all_products as $product) { ?>
 							<div class="panel__item">
 								<div class="left">
-									<span><?= $product['name']; ?></span>
+									<span><?= $product['name']; ?></span> - <span>£<?= $product['price']; ?></span>
 								</div>
 								<div class="right">
 									<form method="post">
 										<input type="hidden" name="action" value="add_product" />
 										<input type="hidden" name="product_id" value='<?= $product['id'] ?>' />
 										<input type="hidden" name="user_id" value='<?= $product['user_id'] ?>' />
-										<button class="btn--purchase" type="submit">Add</button>
+										<button class="btn--add" type="submit">Add</button>
 									</form>
 								</div>
 							</div>
@@ -94,6 +106,7 @@
 			} else {
 				selector.textContent = 'Purchase';
 			}
+
 
 		})
 	})
