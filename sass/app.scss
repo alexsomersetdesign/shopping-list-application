@@ -84,6 +84,7 @@ HEADER {
 
 //Containers --------
 .container {
+	padding:0rem 1rem;
 	&.container--slim {
 		max-width: 850px;
 	}

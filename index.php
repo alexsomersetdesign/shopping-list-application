@@ -52,22 +52,20 @@ switch($action) {
   break;
 
   case "register":
-  $message = register_user($email, $password, $password_confirm);
-  header("Location: /?msg={$message}");
+  $register_response = register_user($email, $password, $password_confirm);
+  header("Location: /?msg={$register_response}");
   break;
 
   case "login":
-
   $user_info = get_user($user_id, $email);
-  $user = login_user($email, $password, $user_info['password']);
+  $login_response = login_user($email, $password, $user_info['password']);
 
   //Check to see if user id is returned
-  if(isset($user['id'])) {
-    header("Location: /?user={$user['id']}");
+  if(isset($login_response['id'])) {
+    header("Location: /?user={$login_response['id']}");
     include('view/shopping-list.php');
   } else {
-    header("Location: /");
-    include('view/login');
+    header("Location: /?msg={$login_response}");
   }
   break;
 

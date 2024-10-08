@@ -123,6 +123,9 @@ HEADER .btn--white {
   border: 2px solid white;
 }
 
+.container {
+  padding: 0rem 1rem;
+}
 .container.container--slim {
   max-width: 850px;
 }

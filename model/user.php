@@ -1,10 +1,9 @@
 <?php
 
-//Add a user to the database
 function login_user($email, $password, $hashed_password) {
 	global $db;
 
-	//Get password associated to an email address
+	//Get password associated to an email address, verify
 	if(password_verify($password, $hashed_password)) {
 
 		$password = $hashed_password;
@@ -28,20 +27,23 @@ function login_user($email, $password, $hashed_password) {
 		$statement->closeCursor();
 
 		return $user;
+	} else {
+		$message = 'login-fail';
+		return $message;
 	}
 }
-
 
 function register_user($email, $password, $confirm_password) {
 	global $db;
 
+	//Check and ensure all fields are populated
 	if(!empty($email) && !empty($password) && !empty($confirm_password)) {
 
+		//Ensure password and password confirm match
 		if($password == $confirm_password) {
 
+			//Encrypt password
 			$password = password_hash($password, PASSWORD_DEFAULT);
-
-			
 
 			$query = 'INSERT INTO users (email, password) VALUES (:email, :password)';
 
@@ -64,7 +66,6 @@ function register_user($email, $password, $confirm_password) {
 	}
 }
 
-
 function get_user($user_id = '', $email = '') {
 	global $db;
 
@@ -80,9 +81,6 @@ function get_user($user_id = '', $email = '') {
 	return $user;
 
 }
-
-
-
 
 function set_user_spending_limit($user_id, $spending_limit) {
 	global $db;

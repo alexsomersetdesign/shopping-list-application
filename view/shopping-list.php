@@ -3,11 +3,7 @@
 	<div class="container mx-auto">
 		<div class="panel">
 			<div class="spending-limit mb-5">
-					
-
-					<h2 class="header">Spending Limit = £<span id="spendingLimit"><?= $user['spending_limit']; ?></span><span class="spending-limit__message">You have reached your spending limit</span></h2>
-				
-
+				<h2 class="header">Spending Limit = £<span id="spendingLimit"><?= $user['spending_limit']; ?></span><span class="spending-limit__message">You have reached your spending limit</span></h2>
 				<form method="post">
 					<input type="hidden" name="action" value="set_user_spending_limit" />
 					<input type="hidden" name="user_id" value='<?= $user_id; ?>' />
@@ -18,7 +14,7 @@
 				</form>
 			</div>
 			<div class="panel__row grid grid-cols-12 gap-8">
-				<div class="panel__column col-span-6">
+				<div class="panel__column md:col-span-6 col-span-12">
 					<h2 class="header mb-5">List Items</h2>
 					<?php $price_array = array(); ?>
 					<?php if(isset($user_products) && count($user_products) > 0) { ?>
@@ -49,7 +45,7 @@
 						<h4 class="header header--extra-small">No products in basket</h4>
 					<? } ?>
 				</div>
-				<div class="panel__column col-span-6">
+				<div class="panel__column md:col-span-6 col-span-12">
 					<h2 class="header mb-5">Products for Sale</h2>
 					<?php if(isset($all_products)) { ?>
 						<?php foreach($all_products as $product) { ?>

@@ -12,10 +12,10 @@
 		<header>
 			<div class="container mx-auto pt-5 pb-5">
 				<div class="grid grid-cols-12 items-center">
-					<div class="col-span-6">
+					<div class="md:col-span-6 col-span-12">
 						<h1 class="header__title">Shopping List Application</h1>
 					</div>
-					<div class="col-span-6 text-end">
+					<div class="md:col-span-6 text-end col-span-12">
 						<? if(isset($_GET['user'])) { ?>
 							<a href="/" class="btn--white">Logout</a>
 						<? } ?>
