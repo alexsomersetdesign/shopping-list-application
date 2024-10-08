@@ -172,7 +172,7 @@ HEADER .btn--white {
   opacity: 0;
   top: 50%;
 }
-.panel .panel__row .panel__column .panel__item .left SPAN.picked-up:before {
+.panel .panel__row .panel__column .panel__item .left SPAN.crossed-off:before {
   opacity: 1;
 }
 

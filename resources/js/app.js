@@ -1,4 +1,4 @@
-const pick_up_selectors = document.querySelectorAll('.btn--purchase');
+const cross_off_selectors = document.querySelectorAll('.btn--purchase');
 const remove_selectors = document.querySelectorAll('.btn--remove');
 const selected_products = document.querySelectorAll('.selected-product');
 const storedItems = sessionStorage.getItem('stored-items');
@@ -14,7 +14,7 @@ if(basket_total >= spending_limit) {
 
 //Checks for stored items, if true, process the items and update the UI
 	if(storedItems !== null) {
-		getStoredItems();
+		getStoredListItems();
 }
 
 //Ensures session storage is cleared if there are no products within selected list
@@ -23,7 +23,7 @@ if(!selected_products.length) {
 }
 
 //Add event listeners to the buttons to add products to array in local storage allowing 'crossed off' to persist on page reloads
-pick_up_selectors.forEach(selector => {
+cross_off_selectors.forEach(selector => {
 	selector.addEventListener('click', function() {
 		if(storedItems !== null) {
             const storedItemArray = storedItems.split(",");
@@ -53,8 +53,8 @@ selected_products.forEach(product => {
 	})
 })
 
-//Get stored items from storage, loop over and locate instances the product is in the basket, add classlist
-function getStoredItems() {
+//Get stored items from storage, loop over and locate instances the where product is in the basket, add classlist
+function getStoredListItems() {
     if(sessionStorage.getItem('stored-items')) {
         //Get items from local storage, create array and ensure any empty values are removed
         const product_array = sessionStorage.getItem('stored-items').split(",").filter(elm => elm);
@@ -71,8 +71,9 @@ function getStoredItems() {
             	const btn = product.querySelector('.btn--purchase');
     			const product_name = product.querySelector('.left SPAN');
 
-    			product_name.classList.add('picked-up');
-    			btn.textContent = 'Put Back';
+
+    			product_name.classList.add('crossed-off');
+    			btn.textContent = 'Crossed Off';
 
     			//Add a new class which will serve as a selector to remove the product from stored array on toggle
     			btn.classList.add('btn--return');
