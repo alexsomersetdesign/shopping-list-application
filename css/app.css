@@ -3,13 +3,27 @@ BODY {
 }
 
 HEADER {
-  background-color: #0369a1;
+  background-color: #022954;
 }
-HEADER .header {
-  padding: 10px 0px;
-}
-HEADER .header .header__title {
+HEADER .header__title {
   color: white;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+HEADER .btn--white {
+  font-size: 1.2rem;
+}
+
+.header {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #022954;
+}
+.header.header--small {
+  font-size: 1.5rem;
+}
+.header.header--extra-small {
+  font-size: 1.2rem;
 }
 
 .section-margin {
@@ -17,8 +31,8 @@ HEADER .header .header__title {
 }
 
 .btn {
-  background-color: #0369a1;
-  border: 2px solid #0369a1;
+  background-color: #022954;
+  border: 2px solid #022954;
   color: white;
   padding: 5px 15px;
   border-radius: 7px;
@@ -31,11 +45,11 @@ HEADER .header .header__title {
 .btn:hover {
   cursor: pointer;
   background: white;
-  border: 2px solid #0369a1;
-  color: #0369a1;
+  border: 2px solid #022954;
+  color: #022954;
 }
 .btn.hover-stroke:hover {
-  border: 2px solid #0369a1;
+  border: 2px solid #022954;
 }
 
 .btn--remove {
@@ -61,8 +75,8 @@ HEADER .header .header__title {
 }
 
 .btn--purchase, .btn--add {
-  background-color: #0369a1;
-  border: 2px solid #0369a1;
+  background-color: #022954;
+  border: 2px solid #022954;
   color: white;
   padding: 5px 15px;
   border-radius: 7px;
@@ -75,53 +89,51 @@ HEADER .header .header__title {
 .btn--purchase:hover, .btn--add:hover {
   cursor: pointer;
   background: white;
-  border: 2px solid #0369a1;
-  color: #0369a1;
+  border: 2px solid #022954;
+  color: #022954;
 }
 .btn--purchase.hover-stroke:hover, .btn--add.hover-stroke:hover {
-  border: 2px solid #0369a1;
+  border: 2px solid #022954;
 }
-.btn--purchase.btn--purchased, .btn--add.btn--purchased {
+.btn--purchase.btn--purchased, .btn--purchase:disabled, .btn--add.btn--purchased, .btn--add:disabled {
   background-color: green;
   color: white;
   border-color: green;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
+.btn--white {
+  background-color: white;
+  border: 2px solid white;
+  color: #022954;
+  padding: 5px 15px;
+  border-radius: 7px;
+  display: inline-block;
+  font-weight: 500;
+  transition: 0.5s;
+  font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
 }
+.btn--white:hover {
+  cursor: pointer;
+  background: #022954;
+  border: 2px solid white;
+  color: white;
+}
+.btn--white.hover-stroke:hover {
+  border: 2px solid white;
+}
+
 .container.container--slim {
-  max-width: 750px;
+  max-width: 850px;
 }
 
 .panel {
-  border: 2px solid #0369a1;
+  border: 2px solid #022954;
   padding: 30px;
   border-radius: 8px;
 }
 .panel.panel--slim {
   padding: 10px 30px;
-}
-.panel .panel__row {
-  display: flex;
-}
-.panel .panel__row .panel__column {
-  flex: 1 1 0;
-  min-width: 0;
-  flex-shrink: 0;
-}
-.panel .panel__row .panel__column.panel__column--50 {
-  max-width: 50%;
-}
-.panel .panel__row .panel__column.panel__column--33 {
-  max-width: 33%;
-}
-.panel .panel__row .panel__column.panel__column--66 {
-  max-width: 66%;
-}
-.panel .panel__row .panel__column.panel__column--right-spacing .panel__item {
-  max-width: 75%;
 }
 .panel .panel__row .panel__column .panel__item {
   padding-bottom: 20px;
@@ -137,6 +149,13 @@ HEADER .header .header__title {
 .panel .panel__row .panel__column .panel__item .right .btn--purchase {
   margin-right: 0.5rem;
 }
+.panel .panel__row .panel__column .panel__item .right .btn--return {
+  background-color: red;
+  border-color: red;
+}
+.panel .panel__row .panel__column .panel__item .right .btn--return:hover {
+  color: white;
+}
 .panel .panel__row .panel__column .panel__item .left SPAN {
   position: relative;
 }
@@ -149,7 +168,7 @@ HEADER .header .header__title {
   opacity: 0;
   top: 50%;
 }
-.panel .panel__row .panel__column .panel__item.panel__item--purchased .left SPAN:before {
+.panel .panel__row .panel__column .panel__item .left SPAN.picked-up:before {
   opacity: 1;
 }
 
@@ -163,21 +182,36 @@ HEADER .header .header__title {
   display: block;
 }
 
+FORM {
+  margin-bottom: 0rem;
+}
 FORM .form__input INPUT {
-  border: 2px solid #0369a1;
+  border: 2px solid #022954;
   border-radius: 5px;
   padding: 10px 20px;
   margin: 10px 0px;
   font-weight: 500;
   font-size: 1rem;
-  min-width: 250px;
+  width: 100%;
 }
 FORM .form__input INPUT::placeholder {
-  color: #0369a1;
+  color: #022954;
   font-weight: 800;
 }
 FORM BUTTON.btn {
   font-size: 1rem;
+  padding: 10px 15px;
+}
+
+.spending-limit FORM .form__input {
+  max-width: 300px;
+  display: inline-block;
+}
+.spending-limit FORM .form__input INPUT {
+  padding: 8px 20px;
+}
+.spending-limit FORM BUTTON {
+  padding: 10px 20px;
 }
 
 /*# sourceMappingURL=app.css.map */

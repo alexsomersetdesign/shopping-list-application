@@ -1,5 +1,5 @@
 //Colour Variables
-$blueStd:#0369a1;
+$blueStd:#022954;
 
 //Fonts
 $font1: 'Poppins', sans-serif;
@@ -35,11 +35,26 @@ BODY {
 }
 HEADER {
 	background-color: $blueStd;
-	.header {
-		padding:10px 0px;
-		.header__title {
-			color: white;
-		}
+	.header__title {
+		color: white;
+		font-size: 2.5em;
+		font-weight: 700;
+	}
+	.btn--white {
+		font-size: 1.2rem;
+	}
+}
+
+//Headers --------
+.header {
+	font-weight: 700;
+	font-size: 1.8rem;
+	color: $blueStd;
+	&.header--small {
+		font-size: 1.5rem;
+	}
+	&.header--extra-small {
+		font-size: 1.2rem;
 	}
 }
 
@@ -57,24 +72,24 @@ HEADER {
 }
 .btn--purchase, .btn--add {
 	@include button;
-	&.btn--purchased {
+	&.btn--purchased, &:disabled {
 		background-color: green;
 		color: white;
 		border-color:green;
 	}
 }
-
-
+.btn--white {
+	@include button($primary_color:white, $secondary_color:$blueStd);
+}
 
 //Containers --------
 .container {
-	max-width: 1200px;
-	margin:auto;
 	&.container--slim {
-		max-width: 750px;
+		max-width: 850px;
 	}
 
 }
+//Content Panels -------
 .panel {
 	border:2px solid $blueStd;
 	padding:30px;
@@ -83,31 +98,7 @@ HEADER {
 		padding:10px 30px;
 	}
 	.panel__row {
-		display: flex;
 		.panel__column {
-			flex: 1 1 0;
-    		min-width: 0;
-    		flex-shrink: 0;
-			&.panel__column--50 {
-				max-width:50%;
-				// flex:0 0 50%;
-			}
-			&.panel__column--33 {
-				max-width:33%;
-				// flex:0 0 33%;
-			}
-			&.panel__column--66 {
-				max-width:66%;
-				// flex:0 0 66%;
-			}
-			&.panel__column--left-padding {
-				
-			}
-			&.panel__column--right-spacing {
-				.panel__item {
-					max-width: 75%;
-				}
-			}
 			.panel__item {
 				padding-bottom:20px;
 				position: relative;
@@ -120,6 +111,12 @@ HEADER {
 					.btn--purchase {
 						margin-right: 0.5rem;
 					}
+					.btn--return {
+						background-color: red;
+						border-color: red;
+						&:hover {
+							color:white;
+						}					}
 				}
 				.left {
 					SPAN {
@@ -133,19 +130,13 @@ HEADER {
 							opacity: 0;
 							top: 50%;
 						}
-					}
-				}
-				&.panel__item--purchased {
-					.left {
-						SPAN {
+						&.picked-up {
 							&:before {
 								opacity: 1;
 							}
 						}
 					}
 				}
-				
-
 			}
 		}
 	}
@@ -163,8 +154,8 @@ HEADER {
 }
 
 //Form Styling -------
-
 FORM {
+	margin-bottom: 0rem;
 	.form__input {
 		INPUT {
 			border:2px solid $blueStd;
@@ -173,7 +164,8 @@ FORM {
 			margin:10px 0px;
 			font-weight: 500;
 			font-size: 1rem;
-			min-width: 250px;
+			width: 100%;
+			//min-width: 250px;
 			&::placeholder {
 				color:$blueStd;
 				font-weight: 800;
@@ -182,5 +174,20 @@ FORM {
 	}
 	BUTTON.btn {
 		font-size: 1rem;
+		padding:10px 15px;
+	}
+}
+.spending-limit {
+	FORM {
+		.form__input {
+			max-width: 300px;
+			display: inline-block;
+			INPUT {
+				padding:8px 20px;
+			}
+		}
+		BUTTON {
+			padding:10px 20px;
+		}
 	}
 }

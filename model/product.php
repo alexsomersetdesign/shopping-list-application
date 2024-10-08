@@ -22,15 +22,12 @@ function add_product($product_id, $user_id) {
 
 function get_user_products($user_id) {
 	global $db;
-	if($user_id) {
-		$query = 'SELECT * from user_products as u left join products as p on p.id= u.product_id WHERE u.user_id=(:user_id)';
 
-	}
-
+	$query = 'SELECT * from user_products as u left join products as p on p.id= u.product_id WHERE u.user_id=(:user_id)';
+	
 	$statement = $db->prepare($query);
 	$statement->bindValue(':user_id', $user_id);
 	$statement->execute();
-
 	$user_products = $statement->fetchAll();
 	$statement->closeCursor();
 
@@ -41,11 +38,8 @@ function get_all_products() {
 	global $db;
 	
 	$query = 'SELECT * FROM products';
-
-
 	$statement = $db->prepare($query);
 	$statement->execute();
-
 	$all_products = $statement->fetchAll();
 	$statement->closeCursor();
 
