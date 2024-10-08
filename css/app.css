@@ -158,6 +158,7 @@ HEADER .btn--white {
 }
 .panel .panel__row .panel__column .panel__item .left SPAN {
   position: relative;
+  color: #022954;
 }
 .panel .panel__row .panel__column .panel__item .left SPAN:before {
   position: absolute;

@@ -121,6 +121,7 @@ HEADER {
 				.left {
 					SPAN {
 						position: relative;
+						color: $blueStd;
 						&:before {
 							position: absolute;
 							content:'';

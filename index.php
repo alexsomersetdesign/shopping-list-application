@@ -57,7 +57,10 @@ switch($action) {
   break;
 
   case "login":
-  $user = login_user($email, $password);
+
+  $user_info = get_user($user_id, $email);
+  $user = login_user($email, $password, $user_info['password']);
+
   //Check to see if user id is returned
   if(isset($user['id'])) {
     header("Location: /?user={$user['id']}");

@@ -4,7 +4,7 @@
 		<div class="panel">
 			<div class="spending-limit mb-5">
 					
-					
+
 					<h2 class="header">Spending Limit = £<span id="spendingLimit"><?= $user['spending_limit']; ?></span><span class="spending-limit__message">You have reached your spending limit</span></h2>
 				
 
@@ -25,7 +25,7 @@
 						<?php foreach($user_products as $product) { ?>
 							<div class="panel__item selected-product" data-product-id='<?= $product['id']; ?>'>
 								<div class="left">
-									<span><?= $product['name']; ?></span>
+									<span class="font-semibold"><?= $product['name']; ?></span>
 
 									<form method="post">
 										<input type="hidden" name="action" value="order_products" />
@@ -55,7 +55,7 @@
 						<?php foreach($all_products as $product) { ?>
 							<div class="panel__item">
 								<div class="left">
-									<span><?= $product['name']; ?></span> - <span>£<?= $product['price']; ?></span>
+									<span class="font-semibold"><?= $product['name']; ?></span> - <span class="font-semibold">£<?= $product['price']; ?></span>
 								</div>
 								<div class="right">
 									<form method="post" class="product-add-form-<?= $product['id'] ?>">

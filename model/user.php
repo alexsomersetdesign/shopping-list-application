@@ -1,21 +1,13 @@
 <?php
 
 //Add a user to the database
-function login_user($email, $password) {
+function login_user($email, $password, $hashed_password) {
 	global $db;
 
-	//Hash password and check against saved hashed password
-	$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-	// var_dump($hashed_password);
-	// die();
-
+	//Get password associated to an email address
 	if(password_verify($password, $hashed_password)) {
 
 		$password = $hashed_password;
-
-		var_dump($password);
-		die();
 
 		$query = 'SELECT * FROM users WHERE email = :email AND password = :password';
 
@@ -73,22 +65,23 @@ function register_user($email, $password, $confirm_password) {
 }
 
 
-function get_user($user_id) {
+function get_user($user_id = '', $email = '') {
 	global $db;
 
-	$query = 'SELECT * FROM users WHERE id = :user_id';
+	$query = 'SELECT * FROM users WHERE id = :user_id OR email = :email';
 
 	$statement = $db->prepare($query);
 	$statement->bindValue(':user_id', $user_id);
+	$statement->bindValue(':email', $email);
 	$statement->execute();
 	$user = $statement->fetch();
 	$statement->closeCursor();
 
-
-
 	return $user;
 
 }
+
+
 
 
 function set_user_spending_limit($user_id, $spending_limit) {
