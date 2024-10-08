@@ -1,5 +1,49 @@
 <?php
 
+// Start with PHPMailer class
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require('./vendor/phpmailer/phpmailer/src/Exception.php');
+require('./vendor/phpmailer/phpmailer/src/PHPMailer.php');
+require('./vendor/phpmailer/phpmailer/src/SMTP.php');
+
+function send_email($email, $content) {
+	// create a new object
+	$mail = new PHPMailer();
+	// configure an SMTP
+	$mail->isSMTP();
+	$mail->Host = 'sandbox.smtp.mailtrap.io';
+	$mail->SMTPAuth = true;
+	$mail->Username = 'b10aa27ffcba9e';
+	$mail->Password = '316b5644515200';
+	$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+	$mail->Port = 2525;
+
+	$mail->setFrom('shareyourlist@am.com', 'Shared List');
+	$mail->addAddress($email, 'Me');
+	$mail->Subject = 'Shared List';
+	// Set HTML 
+	$mail->isHTML(TRUE);
+	$mail->Body =  '<html><h2>Shopping List<br/>' . $content .'</html>';
+	$mail->AltBody = $content;
+	// add attachment 
+	// just add the '/path/to/file.pdf'
+	$attachmentPath = './confirmations/yourbooking.pdf';
+	if (file_exists($attachmentPath)) {
+	    $mail->addAttachment($attachmentPath, 'yourbooking.pdf');
+	}
+
+	// send the message
+	if(!$mail->send()){
+	    $response = 'failed';
+	} else {
+	    $response = 'success';
+	}
+
+	return $response;
+}
+
+
 function login_user($email, $password, $hashed_password) {
 	global $db;
 
@@ -94,6 +138,12 @@ function set_user_spending_limit($user_id, $spending_limit) {
 	$statement->closeCursor();
 
 }
+
+
+
+
+
+
 
 
 

@@ -143,17 +143,7 @@ HEADER {
 		}
 	}
 }
-.spending-limit {
-	.spending-limit__message {
-		display: none;
-		color: red;
-		font-weight: 600;
-		font-size: 1rem;
-		&.display {
-			display: block;
-		}
-	}
-}
+
 
 //Form Styling -------
 FORM {
@@ -179,7 +169,7 @@ FORM {
 		padding:10px 15px;
 	}
 }
-.spending-limit {
+.spending-limit, .email {
 	FORM {
 		.form__input {
 			max-width: 300px;
@@ -190,6 +180,22 @@ FORM {
 		}
 		BUTTON {
 			padding:10px 20px;
+		}
+	}
+	.spending-limit__message {
+		display: none;
+		color: red;
+		font-weight: 600;
+		font-size: 1rem;
+		&.display {
+			display: block;
+		}
+	}
+}
+.email {
+	FORM {
+		.form__input {
+			min-width: 300px;
 		}
 	}
 }

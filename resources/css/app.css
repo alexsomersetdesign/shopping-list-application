@@ -176,16 +176,6 @@ HEADER .btn--white {
   opacity: 1;
 }
 
-.spending-limit .spending-limit__message {
-  display: none;
-  color: red;
-  font-weight: 600;
-  font-size: 1rem;
-}
-.spending-limit .spending-limit__message.display {
-  display: block;
-}
-
 FORM {
   margin-bottom: 0rem;
 }
@@ -207,15 +197,28 @@ FORM BUTTON.btn {
   padding: 10px 15px;
 }
 
-.spending-limit FORM .form__input {
+.spending-limit FORM .form__input, .email FORM .form__input {
   max-width: 300px;
   display: inline-block;
 }
-.spending-limit FORM .form__input INPUT {
+.spending-limit FORM .form__input INPUT, .email FORM .form__input INPUT {
   padding: 8px 20px;
 }
-.spending-limit FORM BUTTON {
+.spending-limit FORM BUTTON, .email FORM BUTTON {
   padding: 10px 20px;
+}
+.spending-limit .spending-limit__message, .email .spending-limit__message {
+  display: none;
+  color: red;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.spending-limit .spending-limit__message.display, .email .spending-limit__message.display {
+  display: block;
+}
+
+.email FORM .form__input {
+  min-width: 300px;
 }
 
 /*# sourceMappingURL=app.css.map */

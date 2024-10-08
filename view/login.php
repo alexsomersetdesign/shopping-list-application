@@ -42,8 +42,7 @@
 				<div class="panel">
 					<div class="panel__row">
 						<div class="panel__column">
-
-							<div id="register" class="mt-8">
+							<div id="register">
 								<h2 class="header header--small">Register</h2>
 								<form method="post">
 									<input type="hidden" value="register" name="action" />

@@ -2,16 +2,53 @@
 <section class="section-margin">
 	<div class="container mx-auto">
 		<div class="panel">
-			<div class="spending-limit mb-5">
-				<h2 class="header">Spending Limit = £<span id="spendingLimit"><?= $user['spending_limit']; ?></span><span class="spending-limit__message">You have reached your spending limit</span></h2>
-				<form method="post">
-					<input type="hidden" name="action" value="set_user_spending_limit" />
-					<input type="hidden" name="user_id" value='<?= $user_id; ?>' />
-					<div class="form__input">
-						<input type="text" name="spending_limit" value="" placeholder="Set Spending Limit" />
+			<div class="grid grid-cols-12">
+				<div class="col-span-6">
+					<div class="spending-limit mb-5">
+						<h2 class="header">Spending Limit = £<span id="spendingLimit"><?= $user['spending_limit']; ?></span><span class="spending-limit__message">You have reached your spending limit</span></h2>
+						<form method="post">
+							<input type="hidden" name="action" value="set_user_spending_limit" />
+							<input type="hidden" name="user_id" value='<?= $user_id; ?>' />
+							<div class="form__input">
+								<input type="text" name="spending_limit" value="" placeholder="Set Spending Limit" />
+							</div>
+							<button class="btn--add" type="submit">Set Limit</button>
+						</form>
 					</div>
-					<button class="btn--add" type="submit">Set Limit</button>
-				</form>
+				</div>
+				<div class="col-span-6">
+					<div class="email mb-5">
+						<h4 class="header text-green-600 header--extra-small">
+							<?php if(isset($_GET['email'])) {
+								$email_response = $_GET['email'];
+								if($email_response == 'success') {
+									echo 'Email was sent successfully';
+								}
+								else {
+									echo 'Email failed to send, please contact support';
+								} 
+							} ?>
+						</h4>
+
+						<?php if(isset($user_products) && count($user_products) > 0) { ?>
+							<h4 class="header header--extra-small">Share your shopping list</h4>
+						<form method="post">
+							<input type="hidden" name="action" value="share_email" />
+							<div class="form__input">
+								<input type="text" name="sharing_email" placeholder="Enter Email Address" />
+							</div>
+							<textarea class="hidden" name="shared_list">
+								<ul>
+									<?php foreach($user_products as $product) { ?>
+										<li><?= $product['name']; ?></li>
+									<? } ?>
+								</ul>
+							</textarea>
+							<button class="btn--add" type="submit">Send Email</button>
+						</form>
+					<? } ?>
+					</div>
+				</div>
 			</div>
 			<div class="panel__row grid grid-cols-12 gap-8">
 				<div class="panel__column md:col-span-6 col-span-12">
@@ -22,7 +59,6 @@
 							<div class="panel__item selected-product" data-product-id='<?= $product['id']; ?>'>
 								<div class="left">
 									<span class="font-semibold"><?= $product['name']; ?></span>
-
 									<form method="post">
 										<input type="hidden" name="action" value="order_products" />
 										<input type="hidden" name="user_id" value='<?= $product['user_id'] ?>' />
@@ -30,7 +66,7 @@
 									</form>
 								</div>
 								<div class="right">
-									<span class="btn--purchase" data-value='<?= $product['id']; ?>'>Pick Up</span>
+									<span class="btn--purchase" data-value='<?= $product['id']; ?>'>Cross Off</span>
 									<form method="post">
 										<input type="hidden" name="action" value="remove_product" />
 										<input type="hidden" name="user_id" value='<?= $product['user_id'] ?>' />
@@ -41,10 +77,12 @@
 							</div>
 							<?php $price_array[] = $product['price']; ?>
 						<? } ?>
+						
 					<? } else { ?>
 						<h4 class="header header--extra-small">No products in basket</h4>
 					<? } ?>
 				</div>
+
 				<div class="panel__column md:col-span-6 col-span-12">
 					<h2 class="header mb-5">Products for Sale</h2>
 					<?php if(isset($all_products)) { ?>

@@ -4,6 +4,7 @@ require('model/database.php');
 require('model/product.php');
 require('model/user.php');
 
+
 //Get the hidden action field submitted by the post, this works as controller on smaller application
 $action = filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW);
 if(!$action) {
@@ -12,7 +13,6 @@ if(!$action) {
 
   }
 }
-
 
 //Sanitize text input for security
 $product = filter_input(INPUT_POST, 'product', FILTER_UNSAFE_RAW);
@@ -28,6 +28,10 @@ $password_confirm = filter_input(INPUT_POST, 'password_confirm', FILTER_UNSAFE_R
 
 //Spending limit sanitization
 $spending_limit = filter_input(INPUT_POST, 'spending_limit', FILTER_UNSAFE_RAW);
+
+//Email address for list to be shared with
+$sharing_email = filter_input(INPUT_POST, 'sharing_email', FILTER_UNSAFE_RAW);
+$shared_list = filter_input(INPUT_POST, 'shared_list', FILTER_UNSAFE_RAW);
 
 
 
@@ -68,6 +72,12 @@ switch($action) {
   case "set_user_spending_limit":
     set_user_spending_limit($user_id, $spending_limit);
     header("Location: /?user={$user_id}");
+  break;
+
+  case "share_email":
+
+  $email_response = send_email($sharing_email, $shared_list);
+  header("Location: /?user={$user_id}&email={$email_response}");
   break;
 
   case "show-list":
