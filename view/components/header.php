@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Shopping List Application</title>
-	<link rel="stylesheet" href="css/app.css" />
-	<link rel="stylesheet" href="css/tailwind-output.css" />
+	<link rel="stylesheet" href="resources/css/app.css" />
+	<link rel="stylesheet" href="resources/css/tailwind-output.css" />
 </head>
 <body>
 	<main class="main">

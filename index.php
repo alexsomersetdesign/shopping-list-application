@@ -31,55 +31,50 @@ $spending_limit = filter_input(INPUT_POST, 'spending_limit', FILTER_UNSAFE_RAW);
 
 
 
-
-
-
 switch($action) {
 
   case "add_product":
-  add_product($product_id, $user_id);
-  header("Location: /?user={$user_id}");
+    add_product($product_id, $user_id);
+    header("Location: /?user={$user_id}");
   break;
 
   case "remove_product":
-  remove_product($product_id, $user_id);
-  header("Location: /?user={$user_id}");
+    remove_product($product_id, $user_id);
+    header("Location: /?user={$user_id}");
   break;
 
   case "purchase_product":
-  purchase_product($product_id);
-  header("Location: /?user={$user_id}");
+    purchase_product($product_id);
+    header("Location: /?user={$user_id}");
   break;
 
   case "register":
-  $register_response = register_user($email, $password, $password_confirm);
-  header("Location: /?msg={$register_response}");
+    $register_response = register_user($email, $password, $password_confirm);
+    header("Location: /?msg={$register_response}");
   break;
 
   case "login":
-  $user_info = get_user($user_id, $email);
-  $login_response = login_user($email, $password, $user_info['password']);
-
-  //Check to see if user id is returned
-  if(isset($login_response['id'])) {
-    header("Location: /?user={$login_response['id']}");
-    include('view/shopping-list.php');
-  } else {
-    header("Location: /?msg={$login_response}");
-  }
+    $user_info = get_user($user_id, $email);
+    $login_response = login_user($email, $password, $user_info['password']);
+    //Check to see if user id is returned
+    if(isset($login_response['id'])) {
+      header("Location: /?user={$login_response['id']}");
+      include('view/shopping-list.php');
+    } else {
+      header("Location: /?msg={$login_response}");
+    }
   break;
 
   case "set_user_spending_limit":
-  set_user_spending_limit($user_id, $spending_limit);
-  header("Location: /?user={$user_id}");
+    set_user_spending_limit($user_id, $spending_limit);
+    header("Location: /?user={$user_id}");
   break;
 
   case "show-list":
-  $user_products = get_user_products($user_id);
-  $all_products = get_all_products();
-  $user = get_user($user_id);
-  
-  include('view/shopping-list.php');
+    $user_products = get_user_products($user_id);
+    $all_products = get_all_products();
+    $user = get_user($user_id);
+    include('view/shopping-list.php');
   break;
 
   default:
