@@ -15,17 +15,19 @@ Completed Stories
 9 - Ability to share shopping list via email
 10 - Add a login system to persist shopping lists for different users (Registration and login system)
 
-Incomplete Stories (not enough time left of 6 hours to complete)
+Incomplete Stories (not enough time left)
 
 6 - Create a way for user to be able to change the order of items in their shopping list
 
 
 How to setup
 
+- git clone 
 - Create Localhost evironment
 - Check model/database.php to ensure correct path and credentials
 - Download DB attached to the project (DB should be empty aside a few products existing within 'products' table) and import tables NOTE: my machine is faily old now, occassionally get issues opening SQL files and running the query. Importing of file resolves this issue for me.
-- Register a user and login
 - Ensure SMTP credentials are correct in model/user.php (line 14-20)
-- 
+- Register a user and login
+
+  
 
