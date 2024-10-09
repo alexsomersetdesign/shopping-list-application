@@ -22,3 +22,10 @@ Incomplete Stories (not enough time left of 6 hours to complete)
 
 How to setup
 
+- Create Localhost evironment
+- Check model/database.php to ensure 
+- Download DB attached to the project (DB should be empty aside a few products existing within 'products' table.
+- Register a user and login
+- Ensure SMTP credentials are correct in model/user.php (line 14-20)
+- 
+
