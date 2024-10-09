@@ -33,8 +33,8 @@ How to setup
 
 - git clone https://github.com/alexsomersetdesign/shopping-list-application.git
 - Create Localhost evironment
-- Check model/database.php to ensure correct path and credentials
-- DB is included within the project files.  (DB should be empty aside a few products existing within 'products' table) and import tables NOTE: occassionally I get issues opening SQL files and running the query (my work machine is fairly old!). Importing of file resolves this issue for me.
+- Check model/database.php to ensure correct path and credentials.
+- DB is included within the project files.  (DB should be empty aside a few products existing within 'products' table) and import tables NOTE: occassionally I get issues opening SQL files and running the query (my work machine is fairly old!). Importing of file resolves this issue for me. 
 - Ensure SMTP credentials are correct in model/user.php (line 14-20)
 - Register a user and login
 
