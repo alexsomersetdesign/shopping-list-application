@@ -28,6 +28,7 @@ Incomplete Stories (not enough time left)
 6 - Create a way for user to be able to change the order of items in their shopping list
 
 
+
 How to setup
 
 - git clone https://github.com/alexsomersetdesign/shopping-list-application.git
