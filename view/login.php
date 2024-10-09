@@ -66,16 +66,7 @@
 
 	</div>
 </section>
-<script>
-	const login = document.getElementById('login');
-	const register = document.getElementById('register');
-	const createAccount = document.getElementById('createAccount');
 
-	createAccount.addEventListener('click', function() {
-		login.classList.add('hidden');
-		register.classList.remove('hidden');
-	})
-</script>
 
 
 <?php include ('./view/components/footer.php') ?>
