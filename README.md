@@ -1,5 +1,7 @@
 Prerequisites
-. This application was written using PHP and Vanilla Javascript. It uses an SQL database.
+
+This application was written using PHP and Vanilla Javascript. It uses an SQL database.
+
 
 Completed Stories
 
@@ -17,4 +19,6 @@ Incomplete Stories (not enough time left of 6 hours to complete)
 
 6 - Create a way for user to be able to change the order of items in their shopping list
 
+
 How to setup
+
