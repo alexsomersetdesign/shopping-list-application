@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.7.39)
 # Database: shopping_list
-# Generation Time: 2024-10-09 06:40:26 +0000
+# Generation Time: 2024-10-09 07:03:32 +0000
 # ************************************************************
 
 
@@ -23,14 +23,12 @@ SET NAMES utf8mb4;
 # Dump of table products
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `products`;
-
 CREATE TABLE `products` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `price` decimal(8,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
@@ -53,8 +51,6 @@ UNLOCK TABLES;
 # Dump of table user_products
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `user_products`;
-
 CREATE TABLE `user_products` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `product_id` int(11) DEFAULT NULL,
@@ -66,8 +62,6 @@ CREATE TABLE `user_products` (
 
 # Dump of table users
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
