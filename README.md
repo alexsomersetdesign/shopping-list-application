@@ -23,8 +23,8 @@ Incomplete Stories (not enough time left of 6 hours to complete)
 How to setup
 
 - Create Localhost evironment
-- Check model/database.php to ensure 
-- Download DB attached to the project (DB should be empty aside a few products existing within 'products' table.
+- Check model/database.php to ensure correct path and credentials
+- Download DB attached to the project (DB should be empty aside a few products existing within 'products' table) and import tables NOTE: my machine is faily old now, occassionally get issues opening SQL files and running the query. Importing of file resolves this issue for me.
 - Register a user and login
 - Ensure SMTP credentials are correct in model/user.php (line 14-20)
 - 
