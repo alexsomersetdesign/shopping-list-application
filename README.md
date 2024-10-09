@@ -1,6 +1,6 @@
 Prerequisites
 
-This application was written using PHP and Vanilla Javascript. It uses an SQL database.
+This application was created using PHP and Vanilla Javascript. It uses an SQL database.
 
 
 Completed Stories
