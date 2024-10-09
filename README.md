@@ -22,12 +22,14 @@ Incomplete Stories (not enough time left)
 
 How to setup
 
-- git clone 
+- git clone https://github.com/alexsomersetdesign/shopping-list-application.git
 - Create Localhost evironment
 - Check model/database.php to ensure correct path and credentials
-- Download DB attached to the project (DB should be empty aside a few products existing within 'products' table) and import tables NOTE: my machine is faily old now, occassionally get issues opening SQL files and running the query. Importing of file resolves this issue for me.
+- Download DB attached to the project (DB should be empty aside a few products existing within 'products' table) and import tables NOTE: occassionally I get issues opening SQL files and running the query (my work machine is fairly old!). Importing of file resolves this issue for me.
 - Ensure SMTP credentials are correct in model/user.php (line 14-20)
 - Register a user and login
+
+If there are any issues whatsoever, please do not hesitate to contact me.
 
   
 
