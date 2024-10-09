@@ -14,8 +14,8 @@ function send_email($email, $content) {
 	$mail->isSMTP();
 	$mail->Host = 'sandbox.smtp.mailtrap.io';
 	$mail->SMTPAuth = true;
-	$mail->Username = 'b10aa27ffcba9e';
-	$mail->Password = '316b5644515200';
+	$mail->Username = '';
+	$mail->Password = '';
 	$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 	$mail->Port = 2525;
 
